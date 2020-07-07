@@ -3,4 +3,8 @@ class Api::V1::SongsController < ApplicationController
         songs = Song.all
         render json: songs
     end
+    def show
+        song = Song.find(params[:id])
+        render json: song
+    end
 end
