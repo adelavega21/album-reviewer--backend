@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_06_180815) do
+ActiveRecord::Schema.define(version: 2020_07_08_232217) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 2020_07_06_180815) do
     t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "likes"
+    t.string "dislikes"
   end
 
   create_table "artists", force: :cascade do |t|
@@ -33,9 +35,6 @@ ActiveRecord::Schema.define(version: 2020_07_06_180815) do
 
   create_table "comments", force: :cascade do |t|
     t.string "content"
-    t.integer "rating"
-    t.string "likes"
-    t.string "dislikes"
     t.integer "album_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

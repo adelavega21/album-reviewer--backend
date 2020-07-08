@@ -8,4 +8,12 @@ class Api::V1::AlbumsController < ApplicationController
         ablum = Album.find(params[:id])
         render json: ablum, include: [:songs, :comments]
     end
+    def create
+        album = Album.create(album_params)
+        render json: album, include: [:songs, :comments]
+    end
+    
+    def album_params
+    params.require(:album).permit!
+    end
 end
