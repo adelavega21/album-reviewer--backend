@@ -6,6 +6,6 @@ class Api::V1::AlbumsController < ApplicationController
     end
     def show
         ablum = Album.find(params[:id])
-        render json: ablum
+        render json: ablum, include: [:songs, :comments]
     end
 end
